@@ -13,14 +13,28 @@
 		<ng-container matColumnDef="actions">
 			<th mat-header-cell *matHeaderCellDef>Actions</th>
 			<td mat-cell *matCellDef="let row">
-				<button mat-icon-button *ngIf="row.canRaise" color="primary">
+				<button
+					mat-icon-button
+					*ngIf="row.canRaise"
+					color="primary"
+					matTooltip="Raise priority"
+				>
 					<mat-icon>arrow_upward</mat-icon>
 				</button>
-				<button mat-icon-button *ngIf="row.canReduce" color="accent">
+				<button
+					mat-icon-button
+					*ngIf="row.canReduce"
+					color="accent"
+					matTooltip="Reduce priority"
+				>
 					<mat-icon>arrow_downward</mat-icon>
 				</button>
-				<button mat-icon-button><mat-icon>low_priority</mat-icon></button>
-				<button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+				<button mat-icon-button matTooltip="Set up priority">
+					<mat-icon>low_priority</mat-icon>
+				</button>
+				<button mat-icon-button color="warn" matTooltip="Delete task">
+					<mat-icon>delete</mat-icon>
+				</button>
 			</td>
 		</ng-container>
 

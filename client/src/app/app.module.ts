@@ -9,6 +9,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatButtonModule } from "@angular/material/button";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({
 	declarations: [AppComponent, TaskListComponent],
@@ -19,7 +20,8 @@ import { MatButtonModule } from "@angular/material/button";
 		MatPaginatorModule,
 		MatSortModule,
 		MatIconModule,
-		MatButtonModule
+		MatButtonModule,
+		MatTooltipModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
