@@ -1,10 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TaskList.Core\**" />
+    <Content Remove="TaskList.Core\**" />
+    <EmbeddedResource Remove="TaskList.Core\**" />
+    <None Remove="TaskList.Core\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.4" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaskList.DAL\TaskList.DAL.csproj" />
   </ItemGroup>
 
 </Project>

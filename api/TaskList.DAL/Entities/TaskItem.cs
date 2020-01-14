@@ -1,8 +1,8 @@
-using System;
-
-namespace TaskList.WebApi.TaskList.DAL.Entities
+namespace TaskList.DAL.Entities
 {
-	public class TaskItemEntity
+	using System;
+
+	public class TaskItem
 	{
 		public Guid Id { get; set; }
 

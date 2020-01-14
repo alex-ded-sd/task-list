@@ -1,48 +1,43 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
 namespace TaskList.WebApi
 {
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+	using Autofac;
+	using Microsoft.AspNetCore.Builder;
+	using Microsoft.AspNetCore.Hosting;
+	using Microsoft.Extensions.Configuration;
+	using Microsoft.Extensions.DependencyInjection;
+	using Microsoft.Extensions.Hosting;
 
-        public IConfiguration Configuration { get; }
+	public class Startup
+	{
+		public Startup(IConfiguration configuration) {
+			Configuration = configuration;
+		}
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-        }
+		public IConfiguration Configuration {
+			get;
+		}
+		public void ConfigureContainer(ContainerBuilder builder) {
+			builder.RegisterModule(new AutofacModule());
+		}
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+		// This method gets called by the runtime. Use this method to add services to the container.
+		public void ConfigureServices(IServiceCollection services) {
+			services.AddControllers();
+		}
 
-            app.UseRouting();
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+			if (env.IsDevelopment()) {
+				app.UseDeveloperExceptionPage();
+			}
 
-            app.UseAuthorization();
+			app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }
-    }
+			app.UseAuthorization();
+
+			app.UseEndpoints(endpoints => {
+				endpoints.MapControllers();
+			});
+		}
+	}
 }
