@@ -38,7 +38,7 @@
 		{
 			TaskItem dbItem = _mockDbTaskItems.FirstOrDefault(existedItem => existedItem.Id == item.Id);
 			if (dbItem == null) return;
-			_modifiedItems.Add((Operations.Delete, item));
+			_modifiedItems.Add((operation, item));
 			_modifiedState = true;
 		}
 
