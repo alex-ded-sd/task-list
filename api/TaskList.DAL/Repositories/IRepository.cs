@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Collections.Generic;
+	using TaskList.DAL.Entities;
 
 	public interface IRepository<T>
 	{
@@ -16,5 +17,7 @@
 		void Delete(T item);
 
 		bool SaveChanges();
+		TaskItem Get(int priority);
+		IEnumerable<TaskItem> Get(Func<TaskItem, bool> predicate);
 	}
 }

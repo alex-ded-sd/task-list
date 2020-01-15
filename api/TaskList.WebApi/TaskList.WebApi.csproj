@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TaskList.DAL\TaskList.DAL.csproj" />
+    <ProjectReference Include="..\TaskList.Core\TaskList.Core.csproj" />
   </ItemGroup>
 
 </Project>
